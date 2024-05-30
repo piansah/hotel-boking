@@ -1,66 +1,148 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Reservasi Hotel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Proyek ini adalah sistem reservasi hotel yang dibangun dengan Laravel. Sistem ini mencakup fitur untuk mengelola kamar, reservasi, dan menampilkan berbagai halaman untuk situs web hotel.
 
-## About Laravel
+## Model
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Reservation dan Room
+Terdapat dua model utama:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Reservation**: Mewakili tabel reservasi dalam basis data.
+- **Room**: Mewakili tabel kamar dalam basis data.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Kedua model ini menggunakan fitur-fitur Eloquent ORM dan mendefinisikan relasi antara reservasi dan kamar.
 
-## Learning Laravel
+## Migrasi Basis Data
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Schema Builder
+Schema Builder Laravel digunakan untuk membuat tabel basis data. Dua migrasi yang didefinisikan adalah:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **CreateRoomsTable**: Membuat tabel kamar.
+- **CreateReservationsTable**: Membuat tabel reservasi.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Seeder
 
-## Laravel Sponsors
+### RoomSeeder
+Seeder RoomSeeder digunakan untuk mengisi tabel kamar dengan data awal, yang membantu dalam pengembangan dan pengujian dengan data dummy.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## View (Blade Templates)
 
-### Premium Partners
+### Template
+Beberapa Blade template digunakan untuk merender halaman dalam aplikasi:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- **create.blade.php**: Formulir untuk membuat reservasi baru.
+- **show.blade.php**: Menampilkan detail reservasi.
+- **rooms.blade.php**: Menampilkan daftar kamar.
+- **about.blade.php**: Halaman tentang kami.
+- **home.blade.php**: Halaman beranda.
 
-## Contributing
+Blade template memungkinkan penggunaan struktur kendali dan sintaksis Blade untuk rendering konten dinamis.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Rute
 
-## Code of Conduct
+### Navigasi
+Rute yang didefinisikan dalam file `web.php` mengarahkan navigasi pengguna dalam aplikasi. Rute-rute ini diatur untuk berbagai halaman seperti beranda, tentang kami, daftar kamar, dan reservasi.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Library Eksternal
 
-## Security Vulnerabilities
+- **Bootstrap**: Digunakan untuk desain tata letak halaman dan komponen-komponen UI.
+- **jQuery**: Digunakan untuk manajemen DOM dan interaksi dengan pengguna.
+- **Font Awesome**: Digunakan untuk ikon-ikon di halaman web.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Kontroler
 
-## License
+### ReservationController.php
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **create()**: Menampilkan formulir pembuatan reservasi.
+- **store(Request $request)**: Menyimpan data reservasi yang baru dibuat dan memvalidasi input pengguna.
+- **show(Reservation $reservation)**: Menampilkan detail reservasi.
+
+### RoomController.php
+
+- **index()**: Menampilkan daftar semua kamar.
+
+## Seeder
+
+### RoomSeeder.php
+Mengisi tabel kamar dengan data awal.
+
+## Layout dan View
+
+- **app.blade.php**: Layout utama aplikasi.
+- **reservations.create.blade.php**: View untuk formulir pembuatan reservasi.
+- **reservations.show.blade.php**: View untuk menampilkan detail reservasi.
+- **rooms.booking.blade.php**: View untuk menampilkan daftar kamar.
+- **about.blade.php**: View untuk halaman tentang kami.
+- **charts.index.blade.php**: View untuk menampilkan chart.
+
+## JavaScript
+
+- **updateRoomPrice**: Memperbarui harga kamar saat kamar dipilih.
+- **calculateTotal**: Menghitung jumlah total pembayaran.
+
+## Basis Data
+
+- **reservations**: Tabel untuk menyimpan data reservasi.
+- **rooms**: Tabel untuk menyimpan data kamar.
+
+## Relasi
+
+Relasi antara `Reservation` dan `Room` adalah satu-ke-satu, di mana setiap reservasi terkait dengan satu kamar.
+
+## Validasi
+
+Validasi input memastikan bahwa input dari pengguna sesuai dengan format yang diharapkan.
+
+## Routing
+
+Routing mengarahkan pengguna ke halaman yang sesuai berdasarkan permintaan yang diterima.
+
+## Seeder
+
+Seeder digunakan untuk mengisi data awal ke dalam basis data.
+
+## Deskripsi Detail Model dan Kontroler
+
+### Model Reservation dan Room
+Model `Reservation` dan `Room` mewakili tabel reservasi dan kamar dalam basis data. Mereka melakukan operasi CRUD pada tabel tersebut. Model `Reservation` memiliki relasi satu-ke-satu dengan model `Room` melalui metode `room()`.
+
+### ReservationController dan RoomController
+
+#### ReservationController
+
+- **create()**: Menampilkan formulir pembuatan reservasi dan mengirimkan data kamar ke view.
+- **store(Request $request)**: Menyimpan reservasi baru dan memvalidasi input.
+- **show(Reservation $reservation)**: Menampilkan detail reservasi.
+
+#### RoomController
+
+- **index()**: Menampilkan daftar kamar.
+
+### Migrasi Basis Data
+
+#### CreateRoomsTable dan CreateReservationsTable
+Migrasi ini membuat struktur tabel yang diperlukan untuk kamar dan reservasi dalam basis data.
+
+### RoomSeeder
+Kelas RoomSeeder memasukkan data awal ke dalam tabel kamar.
+
+### View HTML
+View HTML digunakan untuk menampilkan halaman web. Beberapa view yang digunakan adalah:
+
+- **welcome.blade.php**: Halaman utama.
+- **reservations.create.blade.php**: Formulir pembuatan reservasi.
+- **reservations.show.blade.php**: Detail reservasi.
+- **rooms.booking.blade.php**: Daftar kamar.
+
+### Rute
+Rute mengarahkan permintaan ke fungsi kontroler yang sesuai:
+
+- `/`: Halaman utama.
+- `/rooms`: Halaman daftar kamar.
+- `/reservations/create`: Formulir pembuatan reservasi.
+- `/reservations/{reservation}`: Detail reservasi.
+- `/about`: Halaman tentang kami.
+- `/charts`: Halaman chart.
+
+## Kesimpulan
+README ini memberikan gambaran umum tentang Sistem Reservasi Hotel yang dibangun dengan Laravel, mencakup model, kontroler, migrasi, seeder, view, rute, dan fitur tambahan lainnya. Sistem ini dirancang untuk mengelola kamar hotel dan reservasi secara efisien sambil menyediakan antarmuka yang ramah pengguna.
