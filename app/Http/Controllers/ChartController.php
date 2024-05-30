@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\DB;
 
 class ChartController extends Controller
 {
     public function index()
     {
-        // Get the data for the chart
-        $standarBookings = Reservation::where('room_id', 1)->count(); // assume room_id 1 is standar
-        $deluxeBookings = Reservation::where('room_id', 2)->count(); // assume room_id 2 is deluxe
-        $eksekutifBookings = Reservation::where('room_id', 3)->count(); // assume room_id 3 is eksekutif
+        $roomTypes = DB::table('rooms')->select('type')->distinct()->get();
+        $bookingsByRoomType = [];
 
-        // Pass the data to the view
-        return view('charts.index', compact('standarBookings', 'deluxeBookings', 'eksekutifBookings'));
+        foreach ($roomTypes as $roomType) {
+            $bookingsByRoomType[$roomType->type] = Reservation::where('room_id', function ($query) use ($roomType) {
+                $query->select('id')->from('rooms')->where('type', $roomType->type);
+            })->count();
+        }
+
+        return view('charts.index', compact('bookingsByRoomType'));
     }
 }

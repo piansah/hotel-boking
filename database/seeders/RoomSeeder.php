@@ -13,28 +13,30 @@ class RoomSeeder extends Seeder
         // Data yang akan di-seed ke tabel Room
         $rooms = [
             [   // Data kamar standar
-                'name' => 'Kamar Standar',
-                'type' => 'Standar',
+                'name' => 'Kamar Keluarga',
+                'type' => 'Keluarga',
                 'price' => 500000, // Rp 500.000
                 'description' => 'Kamar standar dengan fasilitas dasar.',
-                'image_url' => 'https://img.freepik.com/free-photo/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table_105762-1783.jpg?t=st=1716876620~exp=1716880220~hmac=b0b2b93ada8613c81308d48119c1a242775837466345072a95d7fa36748e6dde&w=900',
-                'video_url' => '',
+                'image_url' => 'https://img.freepik.com/premium-photo/coastal-hotel-room-with-ocean-view-generative-ai-aig30_31965-179163.jpg?w=1060',
+                'video_url' => 'https://media.istockphoto.com/id/1082349950/id/video/interior-kamar-tidur-hotel-modern.mp4?s=mp4-640x640-is&k=20&c=rzWUXbSweEIl-Iy4bfnF-jnOBYg7UTTEUSTm8pRlmbU=',
             ],
 
             [   // Data kamar deluxe
-                'name' => 'Kamar Deluxe',
-                'type' => 'Deluxe',
+                'name' => 'Suite Mewah',
+                'type' => 'Mewah',
                 'price' => 900000, // Rp 900.000
                 'description' => 'Kamar deluxe dengan fasilitas lengkap.',
-                'image_url' => 'https://img.freepik.com/free-photo/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table_105762-1783.jpg?t=st=1716876620~exp=1716880220~hmac=b0b2b93ada8613c81308d48119c1a242775837466345072a95d7fa36748e6dde&w=900',
+                'image_url' => 'https://img.freepik.com/premium-photo/coastal-hotel-room-with-ocean-view-generative-ai-aig30_31965-179163.jpg?w=1060',
+                'video_url' => 'https://media.istockphoto.com/id/1082349950/id/video/interior-kamar-tidur-hotel-modern.mp4?s=mp4-640x640-is&k=20&c=rzWUXbSweEIl-Iy4bfnF-jnOBYg7UTTEUSTm8pRlmbU=',
             ],
 
             [   // Data kamar eksekutif
-                'name' => 'Kamar Eksekutif',
-                'type' => 'Eksekutif',
+                'name' => 'Kamar Superior',
+                'type' => 'Superior',
                 'price' => 1500000, // Rp 1.500.000
                 'description' => 'Kamar eksekutif dengan fasilitas terbaik.',
-                'image_url' => 'https://img.freepik.com/free-photo/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table_105762-1783.jpg?t=st=1716876620~exp=1716880220~hmac=b0b2b93ada8613c81308d48119c1a242775837466345072a95d7fa36748e6dde&w=900',
+                'image_url' => 'https://img.freepik.com/premium-photo/coastal-hotel-room-with-ocean-view-generative-ai-aig30_31965-179163.jpg?w=1060',
+                'video_url' => 'https://media.istockphoto.com/id/1082349950/id/video/interior-kamar-tidur-hotel-modern.mp4?s=mp4-640x640-is&k=20&c=rzWUXbSweEIl-Iy4bfnF-jnOBYg7UTTEUSTm8pRlmbU=',
             ],
         ];
 

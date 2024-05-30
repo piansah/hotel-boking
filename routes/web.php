@@ -21,8 +21,4 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-// routes/web.php
-Route::get('/charts', [ChartController::class, 'index']);
-
-Route::get('charts', 'ChartController@index')->name('charts.index');
-
+Route::get('/charts', [ChartController::class, 'index'])->name('charts.index');

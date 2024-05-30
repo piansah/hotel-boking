@@ -6,18 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Mengatur viewport untuk responsif -->
 
     <!-- Title -->
-    <title>Hotel Booking</title>
+    <title>{{ config('app.name', 'Hotel Booking') }}</title>
 
     <!-- External Dependencies -->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <!-- Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -28,9 +21,33 @@
         .nav-link {
             color: white; /* Ubah warna teks menjadi putih */
         }
+
+        /* Gaya untuk gambar latar belakang */
+        body {
+            background-image: url('{{ asset('image/background.jpg') }}'); /* Ganti dengan URL gambar Anda */
+            background-size: cover; /* Mengatur ukuran gambar agar menutupi seluruh area */
+            background-position: center; /* Mengatur posisi gambar di tengah */
+            background-repeat: no-repeat; /* Mengatur agar gambar tidak berulang */
+            background-attachment: fixed; /* Mengatur agar gambar tetap di tempat saat di-scroll */
+        }
+
+        /* Opsional: menambahkan lapisan warna dengan transparansi */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1); /* Warna hitam dengan transparansi 10% */
+            z-index: -1; /* Mengatur lapisan di belakang konten */
+        }
+
     </style>
 </head>
 <body>
+    <!-- Tambahkan div untuk overlay -->
+    <div class="background-overlay"></div>
+
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg bg-primary fixed-top">
         <!-- Brand -->
@@ -50,13 +67,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/rooms') }}">Booking</a>
                 </li>
+                <!-- Statics Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('charts.index') }}">Statics</a>
+                </li>
                 <!-- About Link -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">About</a>
-                </li>
-                <!-- Statics Link -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('charts.index') }}">Charts</a>
                 </li>
             </ul>
         </div>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('price'); // Kolom untuk harga kamar
             $table->text('description'); // Kolom untuk deskripsi kamar
             $table->string('image_url')->nullable(); // Kolom untuk URL gambar kamar (opsional)
+            $table->string('video_url')->nullable(); // Kolom untuk URL gambar kamar (opsional)
             $table->timestamps(); // Kolom untuk menandai waktu pembuatan dan pembaruan
         });
     }

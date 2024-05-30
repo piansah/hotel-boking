@@ -3,7 +3,9 @@
 @section('content')
 <br>
 <div class="container">
+
     <h1 class="mb-4">Pemesanan Kamar</h1>
+
     <form action="{{ route('reservations.store') }}" method="POST">
         @csrf
         <div class="form-group">
