@@ -18,6 +18,12 @@
                     <!-- Menampilkan harga kamar -->
                     <p class="card-text">Harga: Rp. {{ number_format($room->price) }}</p>
                 </div>
+                <div class="card-body">
+                    <video controls class="card-img-top">
+                        <source src="{{ asset('video/kamar.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
         @endforeach
@@ -25,4 +31,5 @@
     <!-- Tombol untuk memesan kamar -->
     <a href="{{ route('reservations.create') }}" class="btn btn-primary">Pesan Kamar</a>
 </div>
+<br>
 @endsection

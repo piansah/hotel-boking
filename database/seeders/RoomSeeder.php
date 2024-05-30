@@ -18,6 +18,7 @@ class RoomSeeder extends Seeder
                 'price' => 500000, // Rp 500.000
                 'description' => 'Kamar standar dengan fasilitas dasar.',
                 'image_url' => 'https://img.freepik.com/free-photo/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table_105762-1783.jpg?t=st=1716876620~exp=1716880220~hmac=b0b2b93ada8613c81308d48119c1a242775837466345072a95d7fa36748e6dde&w=900',
+                'video_url' => '',
             ],
 
             [   // Data kamar deluxe

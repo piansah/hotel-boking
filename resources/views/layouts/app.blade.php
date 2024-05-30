@@ -54,6 +54,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">About</a>
                 </li>
+                <!-- Statics Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('charts.index') }}">Charts</a>
+                </li>
             </ul>
         </div>
     </nav>
