@@ -1,112 +1,148 @@
-1. *Model*:
-   - Terdapat dua model utama: Reservation dan Room, yang mewakili tabel-tabel dalam basis data.
-   - Kedua model tersebut menggunakan fitur-fitur dari Eloquent ORM Laravel dan menyediakan relasi antara reservasi dan kamar.
+# Sistem Reservasi Hotel
 
-2. *Migrasi Basis Data*:
-   - Dalam migrasi, digunakan Schema Builder Laravel untuk membuat tabel-tabel basis data.
-   - Terdapat dua migrasi: CreateRoomsTable untuk tabel kamar dan CreateReservationsTable untuk tabel reservasi.
+Proyek ini adalah sistem reservasi hotel yang dibangun dengan Laravel. Sistem ini mencakup fitur untuk mengelola kamar, reservasi, dan menampilkan berbagai halaman untuk situs web hotel.
 
-3. *Seeder*:
-   - Seeder RoomSeeder digunakan untuk mengisi data awal ke tabel kamar.
-   - Ini membantu dalam pengembangan dan uji coba aplikasi dengan menyediakan data dummy.
+## Model
 
-4. *View (Blade Templates)*:
-   - Terdapat beberapa file Blade template untuk menampilkan halaman-halaman dalam aplikasi, seperti:
-     - create.blade.php untuk membuat reservasi baru.
-     - show.blade.php untuk menampilkan detail reservasi.
-     - rooms.blade.php untuk menampilkan daftar kamar.
-     - about.blade.php untuk halaman tentang kami.
-     - home.blade.php untuk halaman beranda.
-   - Blade template memungkinkan penggunaan struktur kendali dan sintaksis Blade Laravel.
+### Reservation dan Room
+Terdapat dua model utama:
 
-5. *Rute (Routes)*:
-   - Rute-rute di dalam file web.php menentukan alur navigasi pengguna dalam aplikasi.
-   - Terdapat rute-rute untuk berbagai halaman seperti beranda, tentang kami, daftar kamar, dan pemesanan.
+- **Reservation**: Mewakili tabel reservasi dalam basis data.
+- **Room**: Mewakili tabel kamar dalam basis data.
 
-6. *Library Eksternal*:
-   - Bootstrap: Digunakan untuk desain tata letak halaman dan komponen-komponen UI.
-   - jQuery: Digunakan untuk manajemen DOM dan interaksi dengan pengguna.
-   - Font Awesome: Digunakan untuk ikon-ikon di halaman web.
+Kedua model ini menggunakan fitur-fitur Eloquent ORM dan mendefinisikan relasi antara reservasi dan kamar.
 
+## Migrasi Basis Data
 
-1. *ReservationController.php*
-   - Fungsi create digunakan untuk menampilkan form pembuatan reservasi.
-   - Fungsi store digunakan untuk menyimpan data reservasi yang dibuat.
-   - Fungsi show digunakan untuk menampilkan detail reservasi.
+### Schema Builder
+Schema Builder Laravel digunakan untuk membuat tabel basis data. Dua migrasi yang didefinisikan adalah:
 
-2. *RoomController.php*
-   - Fungsi index digunakan untuk menampilkan semua kamar.
+- **CreateRoomsTable**: Membuat tabel kamar.
+- **CreateReservationsTable**: Membuat tabel reservasi.
 
-3. *RoomSeeder.php*
-   - Seeder ini digunakan untuk mengisi data kamar ke dalam database.
+## Seeder
 
-4. *Layouts dan Views*
-   - app.blade.php adalah layout utama aplikasi.
-   - reservations.create.blade.php adalah view untuk form pembuatan reservasi.
-   - reservations.show.blade.php adalah view untuk menampilkan detail reservasi.
-   - rooms.boking.blade.php adalah view untuk menampilkan daftar kamar.
-   - about.blade.php adalah view untuk menampilkan tentang hotel.
-   - charts.index.blade.php adalah view untuk menampilkan chart.
+### RoomSeeder
+Seeder RoomSeeder digunakan untuk mengisi tabel kamar dengan data awal, yang membantu dalam pengembangan dan pengujian dengan data dummy.
 
-5. *JavaScript*
-   - Fungsi updateRoomPrice digunakan untuk memperbarui harga kamar saat memilih kamar.
-   - Fungsi calculateTotal digunakan untuk menghitung total pembayaran.
+## View (Blade Templates)
 
-6. *Database*
-   - Tabel reservations digunakan untuk menyimpan data reservasi.
-   - Tabel rooms digunakan untuk menyimpan data kamar.
+### Template
+Beberapa Blade template digunakan untuk merender halaman dalam aplikasi:
 
-7. *Relationship*
-   - Relasi antara Reservation dan Room adalah one-to-one, dimana satu reservasi dimiliki oleh satu kamar.
+- **create.blade.php**: Formulir untuk membuat reservasi baru.
+- **show.blade.php**: Menampilkan detail reservasi.
+- **rooms.blade.php**: Menampilkan daftar kamar.
+- **about.blade.php**: Halaman tentang kami.
+- **home.blade.php**: Halaman beranda.
 
-8. *Validation*
-   - Validasi digunakan untuk memastikan bahwa input dari user sesuai dengan format yang diharapkan.
+Blade template memungkinkan penggunaan struktur kendali dan sintaksis Blade untuk rendering konten dinamis.
 
-9. *Routing*
-   - Routing digunakan untuk mengarahkan pengguna ke halaman yang sesuai berdasarkan request yang diterima.
+## Rute
 
-10. *Seeder*
-    - Seeder digunakan untuk mengisi data awal ke dalam database.
+### Navigasi
+Rute yang didefinisikan dalam file `web.php` mengarahkan navigasi pengguna dalam aplikasi. Rute-rute ini diatur untuk berbagai halaman seperti beranda, tentang kami, daftar kamar, dan reservasi.
 
+## Library Eksternal
+
+- **Bootstrap**: Digunakan untuk desain tata letak halaman dan komponen-komponen UI.
+- **jQuery**: Digunakan untuk manajemen DOM dan interaksi dengan pengguna.
+- **Font Awesome**: Digunakan untuk ikon-ikon di halaman web.
+
+## Kontroler
+
+### ReservationController.php
+
+- **create()**: Menampilkan formulir pembuatan reservasi.
+- **store(Request $request)**: Menyimpan data reservasi yang baru dibuat dan memvalidasi input pengguna.
+- **show(Reservation $reservation)**: Menampilkan detail reservasi.
+
+### RoomController.php
+
+- **index()**: Menampilkan daftar semua kamar.
+
+## Seeder
+
+### RoomSeeder.php
+Mengisi tabel kamar dengan data awal.
+
+## Layout dan View
+
+- **app.blade.php**: Layout utama aplikasi.
+- **reservations.create.blade.php**: View untuk formulir pembuatan reservasi.
+- **reservations.show.blade.php**: View untuk menampilkan detail reservasi.
+- **rooms.booking.blade.php**: View untuk menampilkan daftar kamar.
+- **about.blade.php**: View untuk halaman tentang kami.
+- **charts.index.blade.php**: View untuk menampilkan chart.
+
+## JavaScript
+
+- **updateRoomPrice**: Memperbarui harga kamar saat kamar dipilih.
+- **calculateTotal**: Menghitung jumlah total pembayaran.
+
+## Basis Data
+
+- **reservations**: Tabel untuk menyimpan data reservasi.
+- **rooms**: Tabel untuk menyimpan data kamar.
+
+## Relasi
+
+Relasi antara `Reservation` dan `Room` adalah satu-ke-satu, di mana setiap reservasi terkait dengan satu kamar.
+
+## Validasi
+
+Validasi input memastikan bahwa input dari pengguna sesuai dengan format yang diharapkan.
+
+## Routing
+
+Routing mengarahkan pengguna ke halaman yang sesuai berdasarkan permintaan yang diterima.
+
+## Seeder
+
+Seeder digunakan untuk mengisi data awal ke dalam basis data.
+
+## Deskripsi Detail Model dan Kontroler
 
 ### Model Reservation dan Room
-Model Reservation dan Room adalah kelas yang mewakili tabel reservations dan rooms di database. Model ini digunakan untuk melakukan operasi CRUD (Create, Read, Update, Delete) pada tabel tersebut.
+Model `Reservation` dan `Room` mewakili tabel reservasi dan kamar dalam basis data. Mereka melakukan operasi CRUD pada tabel tersebut. Model `Reservation` memiliki relasi satu-ke-satu dengan model `Room` melalui metode `room()`.
 
-Model Reservation memiliki relasi dengan model Room menggunakan method room(). Hal ini menunjukkan bahwa setiap reservasi dimiliki oleh satu kamar.
+### ReservationController dan RoomController
 
-### Kontroler ReservationController dan RoomController
-Kontroler ReservationController dan RoomController adalah kelas yang digunakan untuk melakukan logika bisnis dan mengatur tindakan yang diambil saat pengguna melakukan permintaan ke aplikasi.
+#### ReservationController
 
-Kontroler ReservationController memiliki beberapa fungsi, yaitu:
+- **create()**: Menampilkan formulir pembuatan reservasi dan mengirimkan data kamar ke view.
+- **store(Request $request)**: Menyimpan reservasi baru dan memvalidasi input.
+- **show(Reservation $reservation)**: Menampilkan detail reservasi.
 
-1. create(): Menampilkan formulir pembuatan reservasi dan mengirimkan data kamar ke view.
-2. store(Request $request): Menyimpan data reservasi yang dibuat dan melakukan validasi input.
-3. show(Reservation $reservation): Menampilkan detail reservasi.
+#### RoomController
 
-Kontroler RoomController memiliki fungsi:
+- **index()**: Menampilkan daftar kamar.
 
-1. index(): Digunakan untuk menampilkan daftar kamar.
+### Migrasi Basis Data
 
-### Migrasi tabel rooms dan reservations
-Migrasi adalah kelas yang digunakan untuk membuat atau mengubah tabel di database. Migrasi tabel rooms dan reservations digunakan untuk membuat struktur tabel yang diperlukan.
+#### CreateRoomsTable dan CreateReservationsTable
+Migrasi ini membuat struktur tabel yang diperlukan untuk kamar dan reservasi dalam basis data.
 
-### Seeder untuk tabel rooms
-Seeder adalah kelas yang digunakan untuk memasukkan data ke tabel di database. Seeder untuk tabel rooms digunakan untuk memasukkan data kamar yang diperlukan.
+### RoomSeeder
+Kelas RoomSeeder memasukkan data awal ke dalam tabel kamar.
 
-### Tampilan HTML
-Tampilan HTML digunakan untuk menampilkan halaman web. Terdapat beberapa tampilan HTML yang digunakan, yaitu:
+### View HTML
+View HTML digunakan untuk menampilkan halaman web. Beberapa view yang digunakan adalah:
 
-1. welcome.blade.php: Halaman utama.
-2. reservations.create.blade.php: Formulir pembuatan reservasi.
-3. reservations.show.blade.php: Halaman detail reservasi.
-4. rooms.boking.blade.php: Halaman daftar kamar.
+- **welcome.blade.php**: Halaman utama.
+- **reservations.create.blade.php**: Formulir pembuatan reservasi.
+- **reservations.show.blade.php**: Detail reservasi.
+- **rooms.booking.blade.php**: Daftar kamar.
 
-### Rute-rute
-Rute-rute digunakan untuk mengatur bagaimana permintaan akan diarahkan ke kontroler dan fungsi yang diperlukan. Terdapat beberapa rute yang digunakan, yaitu:
+### Rute
+Rute mengarahkan permintaan ke fungsi kontroler yang sesuai:
 
-1. /: Halaman utama.
-2. /rooms: Halaman daftar kamar.
-3. /reservations/create: Halaman formulir pembuatan reservasi.
-4. /reservations/{reservation}: Halaman detail reservasi.
-5. /about: Halaman tentang kami.
-6. /charts: Halaman chart.
+- `/`: Halaman utama.
+- `/rooms`: Halaman daftar kamar.
+- `/reservations/create`: Formulir pembuatan reservasi.
+- `/reservations/{reservation}`: Detail reservasi.
+- `/about`: Halaman tentang kami.
+- `/charts`: Halaman chart.
+
+## Kesimpulan
+README ini memberikan gambaran umum tentang Sistem Reservasi Hotel yang dibangun dengan Laravel, mencakup model, kontroler, migrasi, seeder, view, rute, dan fitur tambahan lainnya. Sistem ini dirancang untuk mengelola kamar hotel dan reservasi secara efisien sambil menyediakan antarmuka yang ramah pengguna.
