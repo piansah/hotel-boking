@@ -47,5 +47,5 @@ class RoomSeeder extends Seeder
     }
 }
 
-// Jalankan perintah berikut pada terminal untuk mengeksekusi seeder ini
+// Jalankan perintah berikut pada terminal untuk mengeksekusi seeder ini.
 // php artisan db:seed --class=RoomSeeder

@@ -19,7 +19,7 @@
                     <p class="card-text">Harga: Rp. {{ number_format($room->price) }}</p>
 
                     <!-- Tombol untuk memesan kamar -->
-                    <a href="{{ route('reservations.create') }}" class="btn btn-primary">Pesan Kamar</a>
+                    {{-- <a href="{{ route('reservations.create') }}" class="btn btn-primary">Pesan Kamar</a> --}}
 
                 </div>
                 <div class="card-body">

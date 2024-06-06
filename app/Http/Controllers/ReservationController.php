@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
-    // Fungsi untuk menampilkan form pembuatan reservasi
+    // Fungsi untuk menampilkan form pembuatan reservasi.
     public function create()
     {
         // Mengambil semua data kamar yang tersedia dari model Room

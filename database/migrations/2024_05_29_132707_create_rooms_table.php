@@ -23,7 +23,7 @@ return new class extends Migration
     }
     public function down(): void
     {
-        // Menghapus tabel 'rooms' jika sudah ada
+        // Menghapus tabel 'rooms' jika sudah ada.
         Schema::dropIfExists('rooms');
     }
 };

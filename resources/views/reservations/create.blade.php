@@ -14,10 +14,11 @@
         </div>
         <div class="form-group">
             <label for="identity_number">Nomor Identitas:</label>
+            <!-- Penamaan Variabel dan Konstanta -->
             <input type="text" class="form-control" id="identity_number" name="identity_number" value="{{ old('identity_number') }}" required pattern="[0-9]{16}">
-            <small id="identity_number_help" class="form-text text-muted">Isian salah, data harus 16 digit.</small>
+            <small id="identity_number_help" class="form-text text-muted">Data harus 16 digit.</small>
         </div>
-
+        
         <!-- Jenis Kelamin -->
         <div class="form-group">
             <label for="gender">Jenis Kelamin:</label>
@@ -26,6 +27,15 @@
                 <option value="perempuan" {{ old('gender') == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
             </select>
         </div>
+
+        {{-- <!-- Jenis Kelamin -->
+        <div class="form-group">
+            <label for="gender">Jenis Kelamin:</label><br>
+            <input type="radio" id="gender_male" name="gender" value="laki-laki" {{ old('gender') == 'laki-laki' ? 'checked' : '' }}>
+            <label for="gender_male">Laki-laki</label><br>
+            <input type="radio" id="gender_female" name="gender" value="perempuan" {{ old('gender') == 'perempuan' ? 'checked' : '' }}>
+            <label for="gender_female">Perempuan</label>
+        </div> --}}
 
         <!-- Pilihan Kamar -->
         <div class="form-group">
@@ -62,6 +72,7 @@
         </div>
 
         <!-- Tombol Hitung Total Bayar -->
+        <!-- Penggunaan Konstanta dan Fungsi -->
         <button type="button" class="btn btn-warning" onclick="calculateTotal()">Hitung Total Bayar</button>
 
         <!-- Total Bayar -->
@@ -77,15 +88,6 @@
 </div>
 
 <script>
-    // Fungsi untuk memperbarui harga kamar saat memilih kamar
-    function updateRoomPrice() {
-        const roomSelect = document.getElementById('room_id');
-        const priceInput = document.getElementById('room_price');
-        const selectedRoom = roomSelect.options[roomSelect.selectedIndex];
-        const roomPrice = selectedRoom.getAttribute('data-price');
-        priceInput.value = roomPrice ? `Rp ${parseFloat(roomPrice).toLocaleString('id-ID')}` : '';
-    }
-
     // Fungsi untuk menghitung total pembayaran
     function calculateTotal() {
         const roomSelect = document.getElementById('room_id');
@@ -106,6 +108,15 @@
         }
 
         document.getElementById('total_payment').value = `Rp ${total.toLocaleString('id-ID')}`;
+    }
+
+    // Fungsi untuk memperbarui harga kamar saat memilih kamar
+    function updateRoomPrice() {
+        const roomSelect = document.getElementById('room_id');
+        const priceInput = document.getElementById('room_price');
+        const selectedRoom = roomSelect.options[roomSelect.selectedIndex];
+        const roomPrice = selectedRoom.getAttribute('data-price');
+        priceInput.value = roomPrice ? `Rp ${parseFloat(roomPrice).toLocaleString('id-ID')}` : '';
     }
 
     // Memanggil fungsi untuk memperbarui harga kamar saat halaman dimuat

@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
-    // Fungsi untuk menampilkan semua kamar
+    // Fungsi untuk menampilkan semua kamar.
     public function index()
     {
-        // Mengambil semua data kamar dari model Room
+        // Mengambil semua data kamar dari model Room.
         $rooms = Room::all();
 
-        // Mengirimkan data kamar ke view 'rooms.boking'
+        // Mengirimkan data kamar ke view 'rooms.boking'.
         return view('rooms.boking', compact('rooms'));
     }
 }

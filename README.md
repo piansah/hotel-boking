@@ -35,7 +35,8 @@ Beberapa Blade template digunakan untuk merender halaman dalam aplikasi:
 - **show.blade.php**: Menampilkan detail reservasi.
 - **rooms.blade.php**: Menampilkan daftar kamar.
 - **about.blade.php**: Halaman tentang kami.
-- **home.blade.php**: Halaman beranda.
+- **welcome.blade.php**: Halaman beranda.
+- **index.blade.php**: Halaman Statics.
 
 Blade template memungkinkan penggunaan struktur kendali dan sintaksis Blade untuk rendering konten dinamis.
 
@@ -147,3 +148,27 @@ Rute mengarahkan permintaan ke fungsi kontroler yang sesuai:
 
 ## Kesimpulan
 README ini memberikan gambaran umum tentang Sistem Reservasi Hotel yang dibangun dengan Laravel, mencakup model, kontroler, migrasi, seeder, view, rute, dan fitur tambahan lainnya. Sistem ini dirancang untuk mengelola kamar hotel dan reservasi secara efisien sambil menyediakan antarmuka yang ramah pengguna.
+
+
+## Coding Guidlines pada program hotel atlantis
+
+### Paradigma Struktur Program:
+
+1. **Procedural Programming**:
+   - Penggunaan konsep dasar PHP dalam pembuatan fungsi, penambahan variabel global dengan penggunaan `define`, dan pengulangan dengan `foreach` adalah contoh penerapan procedural programming.
+
+### Prinsip-prinsip Pemrograman:
+
+2. **Penamaan**:
+   - Menggunakan penamaan variabel yang deskriptif dan mengikuti konvensi penulisan yang baik, seperti `MAX_HEIGHT`, `CAROUSEL_MARGIN_TOP`, `carouselItems`, `features`, `featuredRooms`, dan `testimonials`.
+
+### Pengelompokan Kode:
+
+3. **Encapsulation**:
+   - Kode telah dikelompokkan ke dalam bagian-bagian yang logis, seperti carousel, deskripsi hotel, fitur, kamar unggulan, ulasan tamu, dan penawaran khusus.
+
+### Penggunaan Konstanta dan Variabel Global:
+   - Menggunakan konstanta untuk nilai-nilai tetap seperti `MAX_HEIGHT` dan `CAROUSEL_MARGIN_TOP`. Ini memungkinkan penggunaan yang mudah dan pembaruan nilai secara konsisten di seluruh kode.
+
+### Komentar:
+Terkait dengan dokumentasi kode, dilengkapi dengan komentar yang jelas namun belum mengandung komentar yang ekstensif, kode yang bersih dan deskriptif secara alami membantu dalam pemahaman dan perawatan kode.

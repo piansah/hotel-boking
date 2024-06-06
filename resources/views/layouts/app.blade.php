@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Mengatur viewport untuk responsif -->
 
     <!-- Title -->
-    <title>{{ config('app.name', 'Hotel Booking') }}</title>
+    <title>Hotel Atlantis</title>
 
     <!-- External Dependencies -->
     <!-- Bootstrap CSS -->
@@ -24,11 +24,16 @@
 
         /* Gaya untuk gambar latar belakang */
         body {
-            background-image: url('{{ asset('image/background.jpg') }}'); /* Ganti dengan URL gambar Anda */
+            background-image: url('{{ asset('image/background.jpg') }}'); /* Ganti dengan URL gambar Anda. */
             background-size: cover; /* Mengatur ukuran gambar agar menutupi seluruh area */
             background-position: center; /* Mengatur posisi gambar di tengah */
             background-repeat: no-repeat; /* Mengatur agar gambar tidak berulang */
             background-attachment: fixed; /* Mengatur agar gambar tetap di tempat saat di-scroll */
+            margin: 0; /* Nolkan margin */
+            padding: 0; /* Nolkan padding */
+            display: flex; /* Gunakan Flexbox */
+            flex-direction: column; /* Susun konten secara vertikal */
+            min-height: 100vh; /* Set ketinggian minimum */
         }
 
         /* Opsional: menambahkan lapisan warna dengan transparansi */
@@ -42,6 +47,28 @@
             z-index: -1; /* Mengatur lapisan di belakang konten */
         }
 
+        .card-index {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card-charts {
+            width: 80%;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        /* Footer styles */
+        .footer {
+            width: 100%;
+            height: 50px; /* Sesuaikan tinggi dengan keinginan Anda */
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-top: auto; /* Geser footer ke bagian bawah */
+        }
     </style>
 </head>
 <body>
@@ -49,39 +76,48 @@
     <div class="background-overlay"></div>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <!-- Brand -->
-        <a class="navbar-brand" href="{{ url('/') }}">Hotel Booking</a>
+        <a class="navbar-brand text-white" href="{{ url('/') }}">Atlantis</a>
         <!-- Toggler Button for Mobile -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Navigation Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <!-- Home Link -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Home</a>
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <!-- Booking Link -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/rooms') }}">Booking</a>
+                    <a class="nav-link text-white" href="{{ url('/rooms') }}">Room List</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('reservations.create') }}" class="btn btn-primary">Booking</a>
                 </li>
                 <!-- Statics Link -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('charts.index') }}">Statics</a>
+                    <a class="nav-link text-white" href="{{ route('charts.index') }}">Statics</a>
                 </li>
                 <!-- About Link -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">About</a>
+                    <a class="nav-link text-white" href="{{ route('about') }}">About</a>
                 </li>
             </ul>
         </div>
     </nav>
     <br><br>
+
     <!-- Main Content -->
     <div class="container">
         @yield('content') <!-- Placeholder for dynamic content -->
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Hotel Atlantis. All rights reserved.</p>
+    </footer>
 </body>
 </html>
