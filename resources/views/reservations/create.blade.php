@@ -18,7 +18,7 @@
             <input type="text" class="form-control" id="identity_number" name="identity_number" value="{{ old('identity_number') }}" required pattern="[0-9]{16}">
             <small id="identity_number_help" class="form-text text-muted">Data harus 16 digit.</small>
         </div>
-        
+
         <!-- Jenis Kelamin -->
         <div class="form-group">
             <label for="gender">Jenis Kelamin:</label>
@@ -79,9 +79,10 @@
         <div class="form-group mt-3">
             <label for="total_payment">Total Bayar:</label>
             <input type="text" class="form-control" id="total_payment" name="total_payment" readonly>
-        </div>
+        </div><br>
 
         <!-- Tombol Pesan dan Batalkan -->
+
         <button type="submit" class="btn btn-primary">Pesan</button>
         <a href="{{ url('/') }}" class="btn btn-danger">Gak Jadi</a>
     </form>

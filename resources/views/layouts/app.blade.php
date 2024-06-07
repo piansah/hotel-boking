@@ -11,6 +11,7 @@
     <!-- External Dependencies -->
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -54,7 +55,7 @@
         }
 
         .card-charts {
-            width: 80%;
+            width: 75%;
             background-color: #fff;
             border-radius: 10px;
         }
@@ -76,7 +77,7 @@
     <div class="background-overlay"></div>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
             <!-- Brand -->
             <a class="navbar-brand text-white" href="{{ url('/') }}">Atlantis</a>
@@ -88,23 +89,24 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <!-- Home Link -->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url('/') }}">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a>
+                    </li>
+                    <!-- Room List Link -->
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('rooms') ? 'active' : '' }}" href="{{ url('/rooms') }}">Room List</a>
                     </li>
                     <!-- Booking Link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/rooms') }}">Room List</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('reservations.create') }}" >Booking</a>
+                        <a class="nav-link {{ Request::is('reservations/create') ? 'active' : '' }}" href="{{ route('reservations.create') }}">Booking</a>
                     </li>
                     <!-- Statics Link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('charts.index') }}">Statics</a>
+                        <a class="nav-link {{ Request::is('charts/index') ? 'active' : '' }}" href="{{ route('charts.index') }}">Statics</a>
                     </li>
                     <!-- About Link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}">About</a>
+                        <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
                     </li>
                 </ul>
             </div>
