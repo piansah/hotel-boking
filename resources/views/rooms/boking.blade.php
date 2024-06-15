@@ -8,7 +8,7 @@
             <!-- Looping untuk menampilkan setiap kamar -->
             @foreach ($rooms as $room)
             <div class="col-md-4 mb-4">
-                <div class="card">
+                <div class="card bg-light text-dark border">
                     <!-- Menampilkan gambar kamar -->
                     <img src="{{ asset($room->image_url) }}" class="card-img-top" alt="{{ $room->name }}">
                     <div class="card-body">
