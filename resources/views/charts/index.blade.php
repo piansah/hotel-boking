@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card-index">
-    <div class="card-charts">
-        <div class="card-header">
-            <h2>Bookings by Room Type</h2>
-        </div>
-        <div class="card-body">
-            <canvas id="chart" width="400" height="200"></canvas>
+<div class="container">
+    <div class="card-index justify-content-center d-flex p-5 mt-5">
+        <div class="card-charts w-75">
+            <div class="card-header">
+                <h2>Bookings by Room Type</h2>
+            </div>
+            <div class="card-body">
+                <canvas id="chart" width="400" height="200"></canvas>
+            </div>
         </div>
     </div>
 </div>
